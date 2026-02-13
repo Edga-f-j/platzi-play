@@ -20,10 +20,16 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'dev.langchain4j:langchain4j-open-ai-spring-boot-starter:0.36.2'
-    implementation 'dev.langchain4j:langchain4j-spring-boot-starter:0.36.2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // langchain4j , solo para la version 3 de springboot
+    implementation 'dev.langchain4j:langchain4j-open-ai-spring-boot-starter:0.36.2'
+    implementation 'dev.langchain4j:langchain4j-spring-boot-starter:0.36.2'
 }
 
 tasks.named('test') {
