@@ -1,16 +1,45 @@
 package com.platzi.play.persistence.entity;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+
+@Entity
+// esto es para darle un nombre a la tabla de la base de datos
+@Table(name="platzi_play_peliculas")
 public class MovieEntity {
+    //esto de aqui es para generar el ID de forma automatica e incremental
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 150, unique = true)
     private String titulo;
+
+    @Column(nullable = false, precision = 3)
     private Integer duracion;
+
+    @Column(nullable = false, length = 40)
     private String genero;
+
+    @Column(name = "fecha_estreno")
     private LocalDate fechaEstreno;
+
+    @Column(precision = 3, scale = 2)
     private BigDecimal clasificacion;
+
+    @Column(nullable = false, length = 1)
     private String estado;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitulo() {
         return titulo;
